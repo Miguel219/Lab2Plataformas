@@ -2,21 +2,20 @@ package com.example.lab2
 
 import com.example.lab2.MenuOrder
 
-class MyMenuOrder : MenuOrder {
+class MyMenuOrder(arrayList: ArrayList<String>) : MenuOrder {
 
-    override val menuOrder: ArrayList<String>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    override val menuOrder: ArrayList<String> = arrayList
 
     override fun add(element: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        menuOrder.add(element)
     }
 
     override fun clear() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        menuOrder.clear()
     }
 
     override fun del(elementIndex: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        menuOrder.removeAt(elementIndex)
     }
 
     override fun done() {
