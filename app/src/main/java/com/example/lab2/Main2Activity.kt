@@ -16,16 +16,16 @@ class Main2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-
+        //Se utiliza adapter para agregar el arreglo al listview
         var adapter = ArrayAdapter(this, R.layout.listview_item, MyApplication.menuArray.menuOrder)
         menuList.adapter = adapter
-
+        //La funion que agrega el item seleccionado al pedido
         menuList.setOnItemClickListener {
             parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
             MyApplication.orderArray.add(MyApplication.menuArray.menuOrder[position])
             Toast.makeText( this,"Se ha agregado a la orden", Toast.LENGTH_SHORT).show()
         }
-
+        //La funcion del boton que va a inicio
         button3.setOnClickListener {
 
             val intent:Intent = Intent(  this, MainActivity::class.java)

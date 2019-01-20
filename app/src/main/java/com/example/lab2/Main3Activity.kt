@@ -14,11 +14,11 @@ class Main3Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
-
+        //Se utiliza adapter para agregar el arreglo al listview
         var adapter = ArrayAdapter(this, R.layout.listview_item, MyApplication.orderArray.menuOrder)
         adapter.notifyDataSetChanged()
         orderList.adapter = adapter
-
+        //La funion que elimina el item seleccionado al pedido
         orderList.onItemLongClickListener = object: AdapterView.OnItemLongClickListener{
             override fun onItemLongClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long): Boolean {
                 MyApplication.orderArray.del(position)
@@ -27,18 +27,18 @@ class Main3Activity : AppCompatActivity() {
                 return true
             }
         }
-
+        //La funcion del boton que limpia la lista
         button4.setOnClickListener {
             MyApplication.orderArray.clear()
             orderList.adapter = adapter
         }
-
+        //La funcion del boton que hace el pedido
         button5.setOnClickListener {
             MyApplication.orderArray.clear()
             orderList.adapter = adapter
             Toast.makeText( this,"Se ha realizado tu pedido", Toast.LENGTH_SHORT).show()
         }
-
+        //La funcion del boton que va a inicio
         button6.setOnClickListener {
 
             val intent:Intent = Intent(  this, MainActivity::class.java)
